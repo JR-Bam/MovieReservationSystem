@@ -34,4 +34,12 @@ public class User implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
     }
+
+    public static User emptyUser() {
+        return User.builder()
+                .username(null)
+                .password(null)
+                .role(null)
+                .build();
+    }
 }
